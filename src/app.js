@@ -24,3 +24,25 @@ const userSchema = new mongoose.Schema({
 
 // making collection of docs.
 const UserData = new mongoose.model('userData', userSchema)
+
+// making documents
+
+let resultFunction = async () =>{
+    try {
+        let firstDoc = new UserData({
+            title: 'mrBeast',
+            class: 'seven',
+            active: true,
+            roll_no: 305,
+        })
+
+        let output = await firstDoc.save()
+        console.log(output);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+resultFunction()
+// console.log(typeof UserData);
+
