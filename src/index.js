@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
 // making collection of docs.
 const UserData = new mongoose.model('userData', userSchema)
 
-// making documents
+// creating multi documents
 
 let resultFunction = async () =>{
     try {
@@ -35,8 +35,26 @@ let resultFunction = async () =>{
             active: true,
             roll_no: 305,
         })
+        let secondDoc = new UserData({
+            title: 'carryminati',
+            class: 'nine',
+            active: true,
+            roll_no: 306,
+        })
+        let thirdDoc = new UserData({
+            title: 'techBurner',
+            class: 'seven',
+            active: true,
+            roll_no: 307,
+        })
+        let fourthDoc = new UserData({
+            title: 'tSeries',
+            class: 'eight',
+            active: true,
+            roll_no: 308,
+        })
 
-        let output = await firstDoc.save()
+        let output = await UserData.insertMany([firstDoc, secondDoc, thirdDoc, fourthDoc])
         console.log(output);
     } catch (error) {
         console.log(error);
