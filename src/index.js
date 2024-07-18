@@ -63,14 +63,23 @@ let resultFunction = async () =>{
 // resultFunction()
 
 
-// reading documents
+// reading documents by filter or queries
+
+// ------------------comparision operators for filter--------------------
+// $gte - greater than equal to
+// $lte - less than equal to
+// $gt - greater than 
+// $lt - less than 
+// $in - takes an array and inside you can add multiple options that present 
+// $nin - takes an array and inside you can add multiple options that isn't present
+// $eq - equal to.
+
 let readDocuments = async () =>{
     try {
-        let result = await UserData.find({title: 'mrBeast'}).select({title: 1})
+        let result = await UserData.find({class: {$in : ['seven', 'eight']}})
         console.log(result);
     } catch (error) {
         console.log(error);
     }
 }
-
-readDocuments()
+//readDocuments()
