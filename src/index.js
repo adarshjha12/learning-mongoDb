@@ -60,7 +60,17 @@ let resultFunction = async () =>{
         console.log(error);
     }
 }
+// resultFunction()
 
-resultFunction()
-// console.log(typeof UserData);
 
+// reading documents
+let readDocuments = async () =>{
+    try {
+        let result = await UserData.find({title: 'mrBeast'}).select({title: 1})
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+readDocuments()
