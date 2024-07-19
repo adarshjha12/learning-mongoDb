@@ -83,10 +83,10 @@ let resultFunction = async () =>{
 
 let readDocuments = async () =>{
     try {
-        let result = await UserData.find({class: {$in : ['seven', 'eight']}})
+        let result = await UserData.find({active : true}).select({title: 1, _id:0}).sort({title: -1})
         console.log(result);
     } catch (error) {
         console.log(error);
     }
 }
-//readDocuments()
+readDocuments()
