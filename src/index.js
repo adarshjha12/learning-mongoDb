@@ -74,6 +74,13 @@ let resultFunction = async () =>{
 // $nin - takes an array and inside you can add multiple options that isn't present
 // $eq - equal to.
 
+// ------------------logical operators for filter--------------------
+
+// $or
+// $nor
+// $and
+// $not
+
 let readDocuments = async () =>{
     try {
         let result = await UserData.find({class: {$in : ['seven', 'eight']}})
