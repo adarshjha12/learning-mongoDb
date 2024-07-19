@@ -89,4 +89,15 @@ let readDocuments = async () =>{
         console.log(error);
     }
 }
-readDocuments()
+// readDocuments()
+
+let updateDocuments = async (_id) =>{
+    try {
+        let newDocument = await UserData.findByIdAndUpdate({_id}, {$set: {roll_no: 30}}, {new: true} )
+        console.log(newDocument);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+updateDocuments('6698c8bdc6b92e55e81f20b9')
