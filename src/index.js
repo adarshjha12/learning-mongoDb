@@ -93,11 +93,32 @@ let readDocuments = async () =>{
 
 let updateDocuments = async (_id) =>{
     try {
-        let newDocument = await UserData.findByIdAndUpdate({_id}, {$set: {roll_no: 30}}, {new: true} )
+        let newDocument = await UserData.findByIdAndUpdate({_id}, {$set: {roll_no: 31}}, {new: true} )
         console.log(newDocument);
     } catch (error) {
         console.log(error);
     }
 }
 
-updateDocuments('6698c8bdc6b92e55e81f20b9')
+// updateDocuments('6698c8bdc6b92e55e81f20b9')
+
+const deleteDocument = async () =>{
+    try {
+        let deletedDoc = await UserData.deleteOne({title: "loganPaul"})
+        console.log(deletedDoc);
+    } catch (error) {
+        console.log(error);
+    }
+}
+// deleteDocument()
+
+//we can also delete docs by id like this
+// const deleteDocument = async (_id) =>{
+//     try {
+//         let deletedDoc = await UserData.deleteOne({_id})
+//         console.log(deletedDoc);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// deleteDocument('6698c8bdc6b92e55e81f20b9')
