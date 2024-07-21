@@ -11,7 +11,9 @@ mongoose.connect('mongodb://localhost:27017/adarshDb')
 const userSchema = new mongoose.Schema({
     title:{
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        lowercase: true
     },
     class: String,
     active: Boolean,
@@ -27,7 +29,7 @@ const UserData = new mongoose.model('userData', userSchema)
 
 // creating multi documents
 
-let resultFunction = async () =>{
+let insertData = async () =>{
     try {
         let firstDoc = new UserData({
             title: 'mrBeast',
@@ -60,7 +62,7 @@ let resultFunction = async () =>{
         console.log(error);
     }
 }
-// resultFunction()
+// insertData()
 
 
 // reading documents by filter or queries
@@ -89,7 +91,7 @@ let readDocuments = async () =>{
         console.log(error);
     }
 }
-// readDocuments()
+//readDocuments()
 
 let updateDocuments = async (_id) =>{
     try {
